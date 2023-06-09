@@ -1,6 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/*ogrNo ad vize final (Bu satÄ±r dosya iÃ§ine dahil deÄŸildir! Bilgi amaÃ§lÄ± eklenmiÅŸtir.)
+21010501 Ali 10 60
+21010503 Veli 55 20
+21010504 Sami 70 75
+21010505 Yusuf 100 60
+21010509 Ayse 90 40
+21010511 Fatma 80 90
+21010512 Sukru 50 100
+21010513 Selman 45 50
+21010514 Sema 85 60
+21010515 Ahmet 60 70
+YukarÄ±daki veriler Ã¶ÄŸrenci.txt dosyasÄ±nda yer almaktadÄ±r. Ogrenci numarasÄ± 8 hanelidir.
+1. ogrenci.txt dosyasÄ± okunarak tÃ¼m Ã¶ÄŸrenciler Ã§ift yÃ¶nlÃ¼ bir baÄŸlÄ± listeye eklenecektir. Ekleme iÅŸleminde dersi 
+geÃ§enler (tÃ¼mÃ¼) listenin baÅŸ tarafÄ±nda, kalanlar ise son tarafÄ±nda olacaktÄ±r. SÄ±ralama iÅŸlemi yapÄ±lmasÄ±na gerek yoktur.
+GeÃ§me notu 60 alÄ±nÄ±z. Ort = vize*0.4 + final*0.6; Ort deÄŸeri baÄŸlÄ± listede yer almalÄ±dÄ±r.
+Bunun iÃ§in ListeyeEkle ve Listele fonksiyonlarÄ±nÄ± yazÄ±nÄ±z. (40P) Dosya Ã¶rnek amaÃ§lÄ± olup Ã¶ÄŸrenci ekleme/Ã§Ä±karma 
+yapÄ±labilmelidir.
+2. Ã–ÄŸrenci adÄ± verilen kaydÄ±n yine vize ve final notunu kullanÄ±cÄ±dan alÄ±p gÃ¼ncelleyiniz. ArdÄ±ndan da ortalama notunu 
+gÃ¼ncelleyiniz. (40)
+3. Sondan ve baÅŸtan silme iÅŸlemini gerÃ§ekleÅŸtiriniz. Ã‡ift numaralÄ± dersten ilk kalan Ã¶ÄŸrenci silinecektir. KullanÄ±cÄ± â€œsâ€ 
+girerse sondan, â€œbâ€ girerse baÅŸtan siliniz. (40)
+Bunun iÃ§in bir menÃ¼ tasarlayÄ±nÄ±z.
+1) ListeOlustur
+2) Listele
+3) GÃ¼ncelle
+4) Sil
+0) Ã‡Ä±kÄ±ÅŸ*/
 typedef struct Ogrenci {
     char numara[9];
     char ad[20];
@@ -91,13 +117,13 @@ void OgrenciSil(char ad[9]) {
         temp = temp->sonraki;
     }
     
-    printf("Öğrenci bulunamadı.\n");
+    printf("Ã–ÄŸrenci bulunamadÄ±.\n");
 }
 
 
 void Sil(char secim[1]) {
     if (bas == NULL) {
-        printf("Liste boş, silinecek öğrenci yok.\n");
+        printf("Liste boÅŸ, silinecek Ã¶ÄŸrenci yok.\n");
         return;
     }
     
@@ -109,7 +135,7 @@ void Sil(char secim[1]) {
         }
         
         if (temp == NULL) {
-            printf("Kalan ögrenci bulunamadı.\n");
+            printf("Kalan Ã¶grenci bulunamadÄ±.\n");
             return;
         }
         
@@ -134,7 +160,7 @@ void Sil(char secim[1]) {
         }
         
         if (temp == NULL) {
-            printf("Kalan öğrenci bulunamadı.\n");
+            printf("Kalan Ã¶ÄŸrenci bulunamadÄ±.\n");
             return;
         }
         
@@ -170,11 +196,11 @@ void Listele() {
     temp = son;
 }
 int main() {
-    FILE* dosya = fopen("öğrenci.txt", "r"); 
-   /*Menu tasarlarken 1 .ve 2. seçim arasındaki farkı tam anlayamadığım için dosyanın içindekileri
-    çift yönlü bağlı listeye ekleme işini 1 'de ,tekrar yazdırma işini 2 de yaptırdım.
-    Sonuç olarak diğer menülerin çalışması için öncelikli olarak seçim 1 çalıştırılmalıdır. 
-	Seçim 1'in çalıştırılmadan başka menüler çalıştırıldığında kod çalışmayacaktır.*/
+    FILE* dosya = fopen("Ã¶ÄŸrenci.txt", "r"); 
+   /*Menu tasarlarken 1 .ve 2. seÃ§im arasÄ±ndaki farkÄ± tam anlayamadÄ±ÄŸÄ±m iÃ§in dosyanÄ±n iÃ§indekileri
+    Ã§ift yÃ¶nlÃ¼ baÄŸlÄ± listeye ekleme iÅŸini 1 'de ,tekrar yazdÄ±rma iÅŸini 2 de yaptÄ±rdÄ±m.
+    SonuÃ§ olarak diÄŸer menÃ¼lerin Ã§alÄ±ÅŸmasÄ± iÃ§in Ã¶ncelikli olarak seÃ§im 1 Ã§alÄ±ÅŸtÄ±rÄ±lmalÄ±dÄ±r. 
+	SeÃ§im 1'in Ã§alÄ±ÅŸtÄ±rÄ±lmadan baÅŸka menÃ¼ler Ã§alÄ±ÅŸtÄ±rÄ±ldÄ±ÄŸÄ±nda kod Ã§alÄ±ÅŸmayacaktÄ±r.*/
 	char tercih[1];
 	printf("\t\tMENU\n");
 	printf("1) ListeOlustur\n2) Listele\n3) Guncelle\n4) Sil\n0)Cikis\n");
@@ -212,10 +238,10 @@ int main() {
         Listele();
             break;
         case 4:
-		 /*3." Sondan ve baştan silme işlemini gerçekleştiriniz. Çift numaralı dersten ilk kalan öğrenci silinecektir. Kullanıcı “s” 
-          girerse sondan, “b” girerse baştan siliniz. "
-         Maddesinin " Çift numaralı dersten ilk kalan öğrenci silinecektir." kısmında çift numaralı olup da dersten kalan öğrenci olmadığı 
-		 ve tam olarak ne demek istediğini anlamadığım için kalan öğrencilerin girilen tercihe göre başından ve sonundan silme işlemi yaptım*/
+		 /*3." Sondan ve baÅŸtan silme iÅŸlemini gerÃ§ekleÅŸtiriniz. Ã‡ift numaralÄ± dersten ilk kalan Ã¶ÄŸrenci silinecektir. KullanÄ±cÄ± â€œsâ€ 
+          girerse sondan, â€œbâ€ girerse baÅŸtan siliniz. "
+         Maddesinin " Ã‡ift numaralÄ± dersten ilk kalan Ã¶ÄŸrenci silinecektir." kÄ±smÄ±nda Ã§ift numaralÄ± olup da dersten kalan Ã¶ÄŸrenci olmadÄ±ÄŸÄ± 
+		 ve tam olarak ne demek istediÄŸini anlamadÄ±ÄŸÄ±m iÃ§in kalan Ã¶ÄŸrencilerin girilen tercihe gÃ¶re baÅŸÄ±ndan ve sonundan silme iÅŸlemi yaptÄ±m*/
        printf("\nSilmek icin 's' (sondan) veya 'b' (bastan) girin:\n");
        scanf(" %c", tercih);
        Sil(tercih);
