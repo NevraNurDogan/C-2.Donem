@@ -1,6 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/*Aşağıdaki şekilde bir menü tasarlayınız. Çıkış işlemine kadar tüm işlemler yerine getirilmelidir.
+1 ve 2 nolu işlemler ilk aşamada gerçekleştirilmesi gerekmektedir.
+Menü:
+1. Sayı Üret
+2. Bağlı Liste Oluştur
+3. Ortalamaya Göre Sil
+4. Sıralı Birleştir
+5. Çıkış
+1. Kullanıcı tarafından N sayısı girilecektir. N sayısı kadar rastgele (random fonksiyonu ile) şekilde 
+20-50 arasında (sayılar dâhil) pozitif tam sayılar üretilecektir.
+Örnek N: 8 ise;
+21, 40, 30, 25, 24, 34, 37, 50
+2. Üretilen rastgele sayılar, kullanıcının girdiği sayıdan küçük ya da büyük olmak üzere iki farklı 
+tek yönlü bağlı liste oluşturulacaktır ve listeler aşağıdaki gibi yazdırılacaktır. (50P)
+Eşik Değeri: 30
+Küçük Sayı Listesi => 21, 30, 25, 24
+Büyük Sayı Listesi => 40, 34, 37, 50
+3. Üretilen bağlı listeler kendi içinde ortalamadan büyük olan ilk sayıyı siliniz. (50P)
+Küçük Sayı Listesi => Ortalama: 25.00 30 silinecek… Yeni Liste: 21 -> 25 -> 24
+Büyük Sayı Listesi => Ortalama: 40.25 50 silinecek… Yeni Liste: 40 -> 34 -> 37
+4. Her iki bağlı liste kullanılarak üçüncü ve yeni iki ayrı tek yönlü bağlı listeye TEK ya da ÇİFT sayılar
+sırayla eklenecektir. (Bonus: +50P)
+Ortak ve Sıralı Yeni Bağlı Liste TEK: 21, 25, 37
+Ortak ve Sıralı Yeni Bağlı Liste ÇİFT: 24, 34, 40*/
 typedef struct node {
     int data;
     struct node* next;
@@ -56,7 +79,7 @@ void deleteNodeGreaterThanAverage(struct node** headRef) {
         current = current->next;
     }
     if (current == NULL) {
-        printf("Listede ortalamadan b�y�k bir eleman bulunamad�.\n");
+        printf("Listede ortalamadan büyük bir eleman bulunamadý.\n");
     } else {
         if (previous == NULL) {
             
