@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*2.3. Aðaçtaki en küçük sayýyý bulunuz. Max-min sayýlar arasýndaki farký bulunuz. */
+/*3. AÄŸaÃ§taki en kÃ¼Ã§Ã¼k sayÄ±yÄ± bulunuz. Max-min sayÄ±lar arasÄ±ndaki farkÄ± bulunuz. */
 
 struct Agac{
 	int sayi ;
@@ -28,7 +28,7 @@ struct Agac{
 }
 int enBuyukBul(struct Agac* kok) {
     if (kok == NULL) {
-        printf("Aðaç boþ!\n");
+        printf("AÄŸaÃ§ boÅŸ!\n");
         return -1;
     } else {
         while (kok->sag != NULL) {
@@ -39,7 +39,7 @@ int enBuyukBul(struct Agac* kok) {
 }
 int enKucukBul(struct Agac* kok) {
     if (kok == NULL) {
-        printf("Aðaç boþ!\n");
+        printf("AÄŸaÃ§ boÅŸ!\n");
         return -1;
     } else {
         while (kok->sol != NULL) {
