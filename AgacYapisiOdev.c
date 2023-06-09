@@ -2,6 +2,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+/*ogrNo ad vize final (Bu satır dosya içine dahil değildir! Bilgi amaçlı eklenmiştir.)
+21010501 Ali 10 60
+21010503 Veli 55 20
+21010504 Sami 70 75
+21010505 Yusuf 100 60
+21010509 Ayse 90 40
+21010511 Fatma 80 90
+21010512 Sukru 50 100
+21010513 Selman 45 50
+21010514 Sema 85 60
+21010515 Ahmet 60 70
+Yukarıdaki veriler öğrenci.txt dosyasında yer almaktadır. Ogrenci numarası 8 hanelidir.
+1. ogrenci.txt dosyası okunarak tüm öğrenciler ikili bir ağaç yapısına eklenecektir. Ekleme işlemi 2 şekilde
+yapılacaktır. Kullanıcı “n” girerse öğrenciNumarası, “o” ise ortalamaya göre ikili arama ağacına eklenecektir.
+Ort = vize*0.4 + final*0.6; Ort değeri ağaç yapısı içinde yer almalıdır.
+Bunun için AğacaEkle ve Listele fonksiyonlarını yazınız. (60P) Dosya örnek amaçlı olup öğrenci ekleme/çıkarma 
+yapılabilmelidir. Listeleme işlemini InOrder olarak yapabilirsiniz. 
+Not: InOrder ile ağaca sırayla eklendiğinden ve sıralama işleminin doğru olduğundan emin olunuz.
+2. Öğrenci adı verilen kaydın yine vize ve final notunu kullanıcıdan alıp güncelleyiniz. Ardından da ortalama notunu 
+güncelleyiniz. (40P)
+3. Öğrenci numarası verilen düğümü silip (ilgili düğümler için ) ağacı yeniden oluşturunuz. (Bonus: 50P)
+Bunun için bir menü tasarlayınız.
+1) AgacOlustur
+2) Listele
+3) Güncelle
+4) Sil
+0) Çıkış*/
 
 struct Ogrenci {
     int ogrenciNumarasi;
@@ -104,7 +131,7 @@ void menu() {
 
 int main() {
     struct Ogrenci* kok = NULL;
-    FILE* dosya = fopen("C:\\Users\\Casper\\OneDrive\\Masa�st�\\��renci.txt", "r");
+    FILE* dosya = fopen("C:\\Users\\Casper\\OneDrive\\Masaüstü\\öğrenci.txt", "r");
     if (dosya == NULL) {
         printf("Dosya acilamadi.\n");
         return 1;
