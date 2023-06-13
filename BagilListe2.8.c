@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*8. Kullanýcýnýn istediði sýradaki elemaný yine kullanýcýnýn belirleyeceði yeni sýrayla yer 
-deðiþtiriniz.
+/*8. KullanÄ±cÄ±nÄ±n istediÄŸi sÄ±radaki elemanÄ± yine kullanÄ±cÄ±nÄ±n belirleyeceÄŸi yeni sÄ±rayla yer 
+deÄŸiÅŸtiriniz.
 Index 1, Index 5 ise
 20 10 6 4 3 2 1 => 3 10 6 4 20 2 1*/
 
@@ -34,7 +34,7 @@ void listeyeEkle(struct Dugum** ilk,int data){
 void listYazdir(struct Dugum*ilk){
   	struct Dugum*gecici=ilk;
  	if(gecici==NULL){
-		 printf("Liste boþ.\n");
+		 printf("Liste boÅŸ.\n");
  	}       
 	else{
 		// printf("Bagil liste: ");
@@ -45,7 +45,7 @@ void listYazdir(struct Dugum*ilk){
   	printf("\n");
      }
 }
-// Belirtilen indeksteki elemaný taþýma
+// Belirtilen indeksteki elemanÄ± taÅŸÄ±ma
 void moveElement(struct Dugum** ilk, int index, int newIndex) {
     if (index == newIndex) {
         return;
@@ -53,7 +53,7 @@ void moveElement(struct Dugum** ilk, int index, int newIndex) {
     
     struct Dugum* prev1 = NULL;
     struct Dugum* curr1 = *ilk;
-    int count1 = 0;
+    int count1 = 1;
     while (curr1 != NULL && count1 != index) {
         prev1 = curr1;
         curr1 = curr1->next;
@@ -62,7 +62,7 @@ void moveElement(struct Dugum** ilk, int index, int newIndex) {
     
     struct Dugum* prev2 = NULL;
     struct Dugum* curr2 = *ilk;
-    int count2 = 0;
+    int count2 = 1;
     while (curr2 != NULL && count2 != newIndex) {
         prev2 = curr2;
         curr2 = curr2->next;
@@ -106,10 +106,10 @@ int main(int argc, char *argv[]) {
 	 	 printf("Bagil liste: ");
 		 listYazdir(ilk);
 		 
-         printf("Taþýmak istediðiniz elemanýn indeksini girin: ");
+         printf("TaÅŸÄ±mak istediÄŸiniz elemanÄ±n indeksini girin: ");
          scanf("%d", &index);
     
-         printf("Elemanýn yeni hedef indeksini girin: ");
+         printf("ElemanÄ±n yeni hedef indeksini girin: ");
          scanf("%d", &newIndex);
                 
          moveElement(&ilk, index, newIndex);
