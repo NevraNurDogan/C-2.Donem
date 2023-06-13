@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*7. Kullanýcýnýn istediði modüler sistemde elemanlarý siliniz. 
-Mod giriniz: 2, (Dolayýsýyla Index=2 ve katlarýný silinecektir.)
-20 10 6 4 3 2 1 => 20 6 3 1 olacaktýr */
+/*7. KullanÃ½cÃ½nÃ½n istediÃ°i modÃ¼ler sistemde elemanlarÃ½ siliniz. 
+Mod giriniz: 2, (DolayÃ½sÃ½yla Index=2 ve katlarÃ½nÃ½ silinecektir.)
+20 10 6 4 3 2 1 => 20 6 3 1 olacaktÃ½r */
 
 
 struct Dugum {
@@ -46,8 +46,6 @@ void listYazdir(struct Dugum*ilk){
      }
 }
 
-
-// Ortalamadan küçük olan elemanlarý siler
 void deleteList(struct Dugum** ilk,int mod ) {
     struct Dugum* current = *ilk;
     struct Dugum* prev = NULL;
