@@ -1,36 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* 2. Kullan˝c˝ taraf˝ndan -1 girilene kadar girilen tam say˝lardan sadece pozitif say˝lar˝ diziye
-alan ve ortalamas˝n˝ bulan program kodunu yaz˝n˝z.*/
+/* 2. Kullanƒ±cƒ± tarafƒ±ndan -1 girilene kadar girilen tam sayƒ±lardan sadece pozitif sayƒ±larƒ± diziye
+alan ve ortalamasƒ±nƒ± bulan program kodunu yazƒ±nƒ±z.*/
 
 
 int main() {
-    int size = 0, *ptr, i, sum = 0, count = 0;
-    ptr = (int*)malloc(size * sizeof(int)); // ba˛lang˝Áta bellek ay˝rmak zorunda deiliz
+    int *ptr = NULL, num, sum = 0, count = 0;
+
     printf("Pozitif sayilar girin (-1 girdiginizde durur): ");
 
     while (1) {
-        scanf("%d", ptr + size);
-        if (*(ptr + size) == -1) {
+        scanf("%d", &num);
+        if (num == -1) {
             break;
         }
-        if (*(ptr + size) > 0) {
-            size++;
-          //  int *temp = (int*)realloc(ptr, size * sizeof(int)); // dinamik bellek yeniden boyutland˝rma
-            //if (temp != NULL) {
-               // ptr = temp;
-           // }  
+        if (num > 0) {
+            count++;
+            int *temp = (int *)realloc(ptr, count * sizeof(int));
+            if (temp != NULL) {
+                ptr = temp;
+                *(ptr + count - 1) = num;
+                sum += num;
+            } else {
+                printf("Bellek tahsis hatasi!\n");
+                exit(1); 
+            }
         }
     }
 
-    for (i = 0; i < size; i++) {
-        sum += *(ptr + i);
-        count++;
+    if (count > 0) {
+        printf("Pozitif sayilarin ortalamasi: %.2f\n", (float)sum / count);
+    } else {
+        printf("Hi√ß pozitif sayi girilmedi.\n");
     }
-
-    printf("Pozitif sayilarin ortalamasi: %.2f", (float)sum / count);
 
     free(ptr);
     return 0;
 }
+
